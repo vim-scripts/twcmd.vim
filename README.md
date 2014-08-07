@@ -1,25 +1,25 @@
-# TWCommand
+# twcmd.vim
 
-TWCommand is a set of useful commands for moving & managing tabs and windows in vim.
+twcmd.vim is a set of useful commands for moving & managing tabs and windows in vim.
 
 - Move a tab / window
-![twmove_opt](https://cloud.githubusercontent.com/assets/5915359/3352085/b4d72c90-fa31-11e3-81bd-be7ed57d6e70.gif)
+![twmove2_opt](https://cloud.githubusercontent.com/assets/5915359/3844245/89017712-1e47-11e4-9f19-089d56a035d8.gif)
 
 - Stack visited windows and recover them when closing
 ![twhistory_opt](https://cloud.githubusercontent.com/assets/5915359/3351949/c7c4c2d6-fa27-11e3-816a-f448657a5dba.gif)
 
 ## Usage
 In vim normal mode, type the following command and press `<Enter>`.  
-**:TWCommand {cmd} {arg}**  
+**:TWcmd {cmd} {arg}**  
 - {cmd} : sub-commands for tabs or windows
 - {arg} : vim's `:wincmd`-style single character arguments 
 
 For example,
 ```
-:TWComand tcm l    |" go to the right tab
-:TWComand tmv l    |" move the current tab right
-:TWComand wmv h    |" move the current window left
-:TWComand tcm q    |" close current tab
+:TWcmd tcm l    |" go to the right tab
+:TWcmd tmv l    |" move the current tab right
+:TWcmd wmv h    |" move the current window left
+:TWcmd tcm q    |" close current tab
 ```
 
 It must be much more convenient to define key mappings for frequently used commands.  
@@ -176,14 +176,14 @@ For *wmvt*,
 
 ## Tab-Window History
 
-When you leave a window in vim, TWCommand pushes [tab_id, window_id] information of the window into its *tab-window history stack*.
+When you leave a window in vim, twcmd.vim pushes [tab_id, window_id] information of the window into its *tab-window history stack*.
 
-TWCommand sequentially moves the cursor to the last accessed windows using the history when closing a sequence of windows or tabs.
+twcmd.vim sequentially moves the cursor to the last accessed windows using the history when closing a sequence of windows or tabs.
 You can also walk through windows in the history with *twh* sub-command.
 
 ## Recommended Key Mappings
 
-TWCommand does not provide default key mappings to keep your key mappings clean.
+twcmd.vim does not provide default key mappings to keep your key mappings clean.
 Instead, I suggest convenient one what I'm using now.
 You can add them to your .vimrc and modify them as you want.
 
@@ -195,40 +195,40 @@ function! s:nnoreicmap(option, shortcut, command)
 endfunction
 
 " tab cursor moving and managing
-call s:nnoreicmap('','<A-H>',':TWCommand tcm h<CR>')
-call s:nnoreicmap('','<A-L>',':TWCommand tcm l<CR>')
-call s:nnoreicmap('','<A-P>',':TWCommand tcm p<CR>')
-call s:nnoreicmap('','<A-Q>',':TWCommand tcm q<CR>')
-call s:nnoreicmap('','<A-N>',':TWCommand tcm n<CR>')
+call s:nnoreicmap('','<A-H>',':TWcmd tcm h<CR>')
+call s:nnoreicmap('','<A-L>',':TWcmd tcm l<CR>')
+call s:nnoreicmap('','<A-P>',':TWcmd tcm p<CR>')
+call s:nnoreicmap('','<A-Q>',':TWcmd tcm q<CR>')
+call s:nnoreicmap('','<A-N>',':TWcmd tcm n<CR>')
 
 " tab moving
-call s:nnoreicmap('','<A-J>',':TWCommand tmv h<CR>')
-call s:nnoreicmap('','<A-K>',':TWCommand tmv l<CR>')
-call s:nnoreicmap('','<A-)>',':TWCommand tmv p<CR>')
+call s:nnoreicmap('','<A-J>',':TWcmd tmv h<CR>')
+call s:nnoreicmap('','<A-K>',':TWcmd tmv l<CR>')
+call s:nnoreicmap('','<A-)>',':TWcmd tmv p<CR>')
 
 " window cursor moving and managing
-call s:nnoreicmap('','<A-h>',':TWCommand wcm h<CR>')
-call s:nnoreicmap('','<A-j>',':TWCommand wcm j<CR>')
-call s:nnoreicmap('','<A-k>',':TWCommand wcm k<CR>')
-call s:nnoreicmap('','<A-l>',':TWCommand wcm l<CR>')
-call s:nnoreicmap('','<A-p>',':TWCommand wcm p<CR>')
-call s:nnoreicmap('','<A-q>',':TWCommand wcm q<CR>')
-call s:nnoreicmap('','<A-n>',':TWCommand wcm n<CR>')
-call s:nnoreicmap('','<A-v>',':TWCommand wcm v<CR>')
-call s:nnoreicmap('','<A-s>',':TWCommand wcm s<CR>')
-call s:nnoreicmap('','<A-m>',':TWCommand wcm m<CR>')
+call s:nnoreicmap('','<A-h>',':TWcmd wcm h<CR>')
+call s:nnoreicmap('','<A-j>',':TWcmd wcm j<CR>')
+call s:nnoreicmap('','<A-k>',':TWcmd wcm k<CR>')
+call s:nnoreicmap('','<A-l>',':TWcmd wcm l<CR>')
+call s:nnoreicmap('','<A-p>',':TWcmd wcm p<CR>')
+call s:nnoreicmap('','<A-q>',':TWcmd wcm q<CR>')
+call s:nnoreicmap('','<A-n>',':TWcmd wcm n<CR>')
+call s:nnoreicmap('','<A-v>',':TWcmd wcm v<CR>')
+call s:nnoreicmap('','<A-s>',':TWcmd wcm s<CR>')
+call s:nnoreicmap('','<A-m>',':TWcmd wcm m<CR>')
 
 " window moving
-call s:nnoreicmap('','<A-y>',':TWCommand wmv h<CR>')
-call s:nnoreicmap('','<A-u>',':TWCommand wmv j<CR>')
-call s:nnoreicmap('','<A-i>',':TWCommand wmv k<CR>')
-call s:nnoreicmap('','<A-o>',':TWCommand wmv l<CR>')
-call s:nnoreicmap('','<A-0>',':TWCommand wmv p<CR>')
+call s:nnoreicmap('','<A-y>',':TWcmd wmv h<CR>')
+call s:nnoreicmap('','<A-u>',':TWcmd wmv j<CR>')
+call s:nnoreicmap('','<A-i>',':TWcmd wmv k<CR>')
+call s:nnoreicmap('','<A-o>',':TWcmd wmv l<CR>')
+call s:nnoreicmap('','<A-0>',':TWcmd wmv p<CR>')
 
 " window moving between tabs
-call s:nnoreicmap('','<A-U>',':TWCommand wmvt h<CR>')
-call s:nnoreicmap('','<A-I>',':TWCommand wmvt l<CR>')
-call s:nnoreicmap('','<A-(>',':TWCommand wmvt p<CR>')
+call s:nnoreicmap('','<A-U>',':TWcmd wmvt h<CR>')
+call s:nnoreicmap('','<A-I>',':TWcmd wmvt l<CR>')
+call s:nnoreicmap('','<A-(>',':TWcmd wmvt p<CR>')
 ```
 
 I've define the function `s:nnoreicmap()` to map for normal, insert and command-line modes simultaneously,
