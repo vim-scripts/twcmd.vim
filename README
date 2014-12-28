@@ -1,5 +1,7 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=4876
 
+More information : https://github.com/yssl/twcmd.vim
+
 # twcmd.vim 
 
 twcmd.vim is a set of useful commands for moving & managing tabs and windows in vim.
@@ -18,10 +20,10 @@ In vim normal mode, type the following command and press `<Enter>`.
 
 For example,
 ```
-:TWComand tcm l    |" go to the right tab
-:TWComand tmv l    |" move the current tab right
-:TWComand wmv h    |" move the current window left
-:TWComand tcm q    |" close current tab
+:TWcmd tcm l    |" go to the right tab
+:TWcmd tmv l    |" move the current tab right
+:TWcmd wmv h    |" move the current window left
+:TWcmd tcm q    |" close current tab
 ```
 
 ## Commands
